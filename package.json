@@ -15,7 +15,8 @@
     "build": "rimraf dist && tsc",
     "lint": "tsc --noEmit -p tsconfig.lint.json && eslint --ignore-path .gitignore .",
     "lint-fix": "tsc --noEmit -p tsconfig.lint.json && eslint --fix --ignore-path .gitignore .",
-    "test": "npm run build && node dist/bin.js test/"
+    "test": "npm run build && node dist/bin.js test/",
+    "prepack": "npm run build"
   },
   "engines": {
     "node": ">=18.7.0"
