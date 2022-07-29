@@ -1,0 +1,54 @@
+{
+  "name": "ts-node-test",
+  "version": "0.0.0",
+  "description": "Use the Node.js test runner, but with TypeScript via ts-node",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "ts-node-test": "dist/bin.js"
+  },
+  "scripts": {
+    "build": "rimraf dist && tsc",
+    "lint": "tsc --noEmit -p tsconfig.lint.json && eslint --ignore-path .gitignore .",
+    "lint-fix": "tsc --noEmit -p tsconfig.lint.json && eslint --fix --ignore-path .gitignore .",
+    "test": "npm run build && node dist/bin.js test/"
+  },
+  "engines": {
+    "node": ">=18.7.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meyfa/ts-node-test.git"
+  },
+  "keywords": [
+    "nodejs",
+    "test",
+    "test runner",
+    "testing",
+    "typescript",
+    "ts-node"
+  ],
+  "author": "Fabian Meyer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/meyfa/ts-node-test/issues"
+  },
+  "homepage": "https://github.com/meyfa/ts-node-test#readme",
+  "devDependencies": {
+    "@meyfa/eslint-config": "2.0.0",
+    "@types/node": "18.6.2",
+    "eslint": "8.20.0",
+    "rimraf": "3.0.2",
+    "typescript": "4.7.4"
+  },
+  "dependencies": {
+    "ts-node": "10.9.1"
+  },
+  "peerDependencies": {
+    "typescript": "^4.0.0"
+  }
+}
