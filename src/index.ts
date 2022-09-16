@@ -3,17 +3,16 @@ import { createRequire } from 'module'
 import { pathToFileURL } from 'url'
 import { resolveTestPaths } from './fs.js'
 
-
 const DEFAULT_SUPPORTED_EXTENSIONS = ['.js', '.mjs', '.cjs', '.ts', '.mts', '.cts']
 
-export function getSupportedExtensions() {
-  if(process.env.SUPPORTED_EXTENSIONS) {
+export function getSupportedExtensions (): string[] {
+  if (typeof process.env.SUPPORTED_EXTENSIONS !== 'undefined' && process.env.SUPPORTED_EXTENSIONS !== null) {
     return process.env.SUPPORTED_EXTENSIONS.split(',').map(e => e.trim())
   }
   return DEFAULT_SUPPORTED_EXTENSIONS
 }
 
-export async function main(): Promise<void> {
+export async function main (): Promise<void> {
   const require = createRequire(import.meta.url)
   const esmLoader = pathToFileURL(require.resolve('ts-node/esm')).toString()
   const extensions = getSupportedExtensions()
@@ -25,14 +24,13 @@ export async function main(): Promise<void> {
   spawnChild(esmLoader, resolvedPaths)
 }
 
-
 /**
  * Execute the Node.js test runner with the given loader and set of test file paths.
  *
  * @param loader The loader to use (fully resolved path to the loader script).
  * @param resolvedTestPaths The files under test.
  */
-function spawnChild(loader: string, resolvedTestPaths: string[]): void {
+function spawnChild (loader: string, resolvedTestPaths: string[]): void {
   const child = spawn(
     process.execPath,
     [
@@ -59,7 +57,7 @@ function spawnChild(loader: string, resolvedTestPaths: string[]): void {
   process.on('SIGINT', sendSignalToChild)
   process.on('SIGTERM', sendSignalToChild)
 
-  function sendSignalToChild(signal: string): void {
+  function sendSignalToChild (signal: string): void {
     if (child.pid != null) {
       process.kill(child.pid, signal)
     }
