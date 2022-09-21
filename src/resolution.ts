@@ -20,7 +20,7 @@ export async function resolveTestPaths (paths: string[], extensions: string[], r
   for (const inputPath of paths) {
     resolvedPaths.push(...await walkPath(
       inputPath,
-      (fileName) => { return extensions.some((extension) => fileName.endsWith(extension)) },
+      (fileName) => extensions.some((extension) => fileName.endsWith(extension)),
       readDirectory ?? readdir))
   }
   return resolvedPaths

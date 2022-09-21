@@ -1,21 +1,21 @@
 import { spawn } from 'child_process'
 import { createRequire } from 'module'
 import { pathToFileURL } from 'url'
-import { resolveTestPaths } from './fs.js'
+import { resolveTestPaths } from './resolution.js'
 
-const DEFAULT_SUPPORTED_EXTENSIONS = ['.js', '.mjs', '.cjs', '.ts', '.mts', '.cts']
+const DEFAULT_TEST_EXTENSIONS = ['.js', '.mjs', '.cjs', '.ts', '.mts', '.cts']
 
-export function getSupportedExtensions (): string[] {
-  if (typeof process.env.SUPPORTED_EXTENSIONS !== 'undefined' && process.env.SUPPORTED_EXTENSIONS !== null) {
-    return process.env.SUPPORTED_EXTENSIONS.split(',').map(e => e.trim())
+export function getTestExtensions (): string[] {
+  if (typeof process.env.TEST_EXTENSIONS !== 'undefined' && process.env.TEST_EXTENSIONS !== null) {
+    return process.env.TEST_EXTENSIONS.split(',').map(e => e.trim())
   }
-  return DEFAULT_SUPPORTED_EXTENSIONS
+  return DEFAULT_TEST_EXTENSIONS
 }
 
 export async function main (): Promise<void> {
   const require = createRequire(import.meta.url)
   const esmLoader = pathToFileURL(require.resolve('ts-node/esm')).toString()
-  const extensions = getSupportedExtensions()
+  const extensions = getTestExtensions()
   const resolvedPaths = await resolveTestPaths(process.argv.slice(2), extensions)
   if (resolvedPaths.length === 0) {
     throw new Error('no test files found')
