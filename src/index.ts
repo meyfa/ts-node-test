@@ -1,69 +1,27 @@
 import { spawn } from 'child_process'
-import { join } from 'path'
 import { createRequire } from 'module'
 import { pathToFileURL } from 'url'
-import { readdir } from 'fs/promises'
+import { resolveTestPaths } from './resolution.js'
 
-const SUPPORTED_EXTENSIONS = ['.js', '.mjs', '.cjs', '.ts', '.mts', '.cts']
+const DEFAULT_TEST_EXTENSIONS = ['.js', '.mjs', '.cjs', '.ts', '.mts', '.cts']
+
+export function getTestExtensions (): string[] {
+  if (typeof process.env.TEST_EXTENSIONS !== 'undefined' && process.env.TEST_EXTENSIONS !== null) {
+    return process.env.TEST_EXTENSIONS.split(',').map(e => e.trim())
+  }
+  return DEFAULT_TEST_EXTENSIONS
+}
 
 export async function main (): Promise<void> {
   const require = createRequire(import.meta.url)
   const esmLoader = pathToFileURL(require.resolve('ts-node/esm')).toString()
-
-  const resolvedPaths = await resolveTestPaths(process.argv.slice(2))
+  const extensions = getTestExtensions()
+  const resolvedPaths = await resolveTestPaths(process.argv.slice(2), extensions)
   if (resolvedPaths.length === 0) {
     throw new Error('no test files found')
   }
 
   spawnChild(esmLoader, resolvedPaths)
-}
-
-/**
- * Resolve a given set of (user-provided) input paths to explicit file names.
- *
- * Paths referring to singular files will be returned as-is, while paths referring to directories will be recursed into
- * and the list of all deeply nested files will be returned.
- *
- * The resulting list will be filtered to only contain supported file extensions.
- *
- * @param paths The input paths.
- * @returns An array containing all (matching and non-directory) file names explicitly.
- */
-async function resolveTestPaths (paths: string[]): Promise<string[]> {
-  const resolvedPaths = []
-  for (const inputPath of paths) {
-    resolvedPaths.push(...await walkPath(inputPath, (fileName) => {
-      return SUPPORTED_EXTENSIONS.some((extension) => fileName.endsWith(extension))
-    }))
-  }
-  return resolvedPaths
-}
-
-async function walkPath (path: string, predicate: (fileName: string) => boolean): Promise<string[]> {
-  const found = []
-  const stack = [path]
-
-  // Walk stack depth-first (in tree order)
-  while (stack.length > 0) {
-    const [item] = stack.splice(0, 1)
-    try {
-      // If item can be successfully read as a directory, we add its files to the top-of-stack.
-      const dirFileNames = await readdir(item)
-      stack.unshift(...dirFileNames.map((fileName) => join(item, fileName)))
-    } catch (err: unknown) {
-      if (isNodeError(err) && err.code === 'ENOTDIR') {
-        // item seems to refer to a file instead of a directory.
-        // We want to return it only if it was provided explicitly by the user, or it matches the predicate.
-        if (item === path || predicate(item)) {
-          found.push(item)
-        }
-        continue
-      }
-      throw err
-    }
-  }
-
-  return found
 }
 
 /**
@@ -104,9 +62,4 @@ function spawnChild (loader: string, resolvedTestPaths: string[]): void {
       process.kill(child.pid, signal)
     }
   }
-}
-
-// TS type guard
-function isNodeError (err: unknown): err is { code: unknown } {
-  return typeof err === 'object' && err != null && 'code' in err
 }
