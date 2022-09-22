@@ -29,6 +29,16 @@ The command syntax is similar to `node --test`. Multiple paths can be passed. Di
 for any files with supported extensions (currently: `.js`, `.mjs`, `.cjs`; `.ts`, `.mts`, `.cts`).
 Then, Node's test runner will be started on all files that were found in this process.
 
+You can also override the list of extensions by setting an environment variable (`TEST_EXTENSIONS`).
+Then, the default list of extensions will not be used during discovery and instead only listed extensions will be included.
+For example:
+
+```
+TEST_EXTENSIONS=.test.ts,.test.js ts-node-test test/
+```
+
+The above will recursively look for files in the `test/` directory ending in `.test.ts` or `.test.js`.
+
 ### Why this is needed
 
 TL;DR: Node.js (at the time of writing) does not allow to override the list of extensions that are used when searching
