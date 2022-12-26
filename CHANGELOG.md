@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0](https://github.com/meyfa/ts-node-test/compare/v0.2.0...v0.3.0) (2022-12-26)
+
+
+### Features
+
+* Implement support for watch mode ([#32](https://github.com/meyfa/ts-node-test/issues/32)) ([8914426](https://github.com/meyfa/ts-node-test/commit/89144264f15509c044135298ca8ea28ee3bad185))
+
 ## [0.2.0](https://github.com/meyfa/ts-node-test/compare/v0.1.1...v0.2.0) (2022-09-22)
 
 
