@@ -43,7 +43,7 @@
     "@meyfa/eslint-config": "2.1.2",
     "@types/node": "18.11.17",
     "@types/sinon": "10.0.13",
-    "@types/yargs": "17.0.17",
+    "@types/yargs": "17.0.19",
     "eslint": "8.30.0",
     "rimraf": "3.0.2",
     "sinon": "15.0.1",
