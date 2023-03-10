@@ -40,15 +40,19 @@ TEST_EXTENSIONS=.test.ts,.test.js ts-node-test test/
 
 The above will recursively look for files in the `test/` directory ending in `.test.ts` or `.test.js`.
 
-### Watch mode
+### CLI flags
 
-On Node.js versions that support watch mode in conjunction with the test runner, you can use it by passing the `--watch`
-argument. At time of writing, this is only possible on Node.js 19, but will likely be backported to Node.js 18 in the
-future.
+The following additional CLI flags are supported, and will be passed along to Node.js when provided:
 
-```
-ts-node-test --watch test/
-```
+* `--test-name-pattern <pattern>` *
+* `--test-reporter <reporter>` *
+* `--test-reporter-destination <destination>` *
+* `--test-only`
+* `--watch`
+* `--watch-preserve-output`
+* `--experimental-test-coverage`
+
+_Flags marked with `*` can be passed multiple times._
 
 ## Why this is needed
 
