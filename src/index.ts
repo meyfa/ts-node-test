@@ -13,7 +13,13 @@ export function getTestExtensions (): string[] {
 }
 
 export interface Options {
-  watch: boolean
+  'test-name-pattern'?: string[]
+  'test-reporter'?: string[]
+  'test-reporter-destination'?: string[]
+  'test-only'?: boolean
+  watch?: boolean
+  'watch-preserve-output'?: boolean
+  'experimental-test-coverage'?: boolean
 }
 
 export async function main (paths: string[], options: Options): Promise<void> {
@@ -36,11 +42,7 @@ export async function main (paths: string[], options: Options): Promise<void> {
  * @param options Additional options.
  */
 function spawnChild (loader: string, resolvedTestPaths: string[], options: Options): void {
-  const args = ['--loader', loader, '--test']
-  if (options.watch) {
-    args.push('--watch')
-  }
-  args.push(...resolvedTestPaths)
+  const args = ['--loader', loader, '--test', ...getOptionFlags(options), ...resolvedTestPaths]
   const child = spawn(process.execPath, args, {
     stdio: 'inherit',
     argv0: process.argv0
@@ -63,4 +65,30 @@ function spawnChild (loader: string, resolvedTestPaths: string[], options: Optio
       process.kill(child.pid, signal)
     }
   }
+}
+
+function getOptionFlags (options: Options): string[] {
+  const flags: string[] = []
+  for (const pattern of options['test-name-pattern'] ?? []) {
+    flags.push('--test-name-pattern', pattern)
+  }
+  for (const reporter of options['test-reporter'] ?? []) {
+    flags.push('--test-reporter', reporter)
+  }
+  for (const destination of options['test-reporter-destination'] ?? []) {
+    flags.push('--test-reporter-destination', destination)
+  }
+  if (options['test-only'] === true) {
+    flags.push('--test-only')
+  }
+  if (options.watch === true) {
+    flags.push('--watch')
+  }
+  if (options['watch-preserve-output'] === true) {
+    flags.push('--watch-preserve-output')
+  }
+  if (options['experimental-test-coverage'] === true) {
+    flags.push('--experimental-test-coverage')
+  }
+  return flags
 }
