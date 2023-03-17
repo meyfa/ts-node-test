@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.4.0](https://github.com/meyfa/ts-node-test/compare/v0.3.0...v0.4.0) (2023-03-17)
+
+
+### Features
+
+* Support additional test-related CLI flags ([#45](https://github.com/meyfa/ts-node-test/issues/45)) ([756c457](https://github.com/meyfa/ts-node-test/commit/756c457abe76125d2f44da7e9aace7ec59fc5d11))
+
+
+### Bug Fixes
+
+* **deps:** Support TypeScript 5 ([#50](https://github.com/meyfa/ts-node-test/issues/50)) ([ffb9452](https://github.com/meyfa/ts-node-test/commit/ffb945232a2bacf427528943327f81b0e43f0ff9))
+
 ## [0.3.0](https://github.com/meyfa/ts-node-test/compare/v0.2.0...v0.3.0) (2022-12-26)
 
 
