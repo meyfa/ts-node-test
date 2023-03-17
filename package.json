@@ -41,18 +41,18 @@
   "homepage": "https://github.com/meyfa/ts-node-test#readme",
   "devDependencies": {
     "@meyfa/eslint-config": "3.0.0",
-    "@types/node": "18.14.2",
+    "@types/node": "18.15.3",
     "@types/sinon": "10.0.13",
     "@types/yargs": "17.0.17",
     "eslint": "8.35.0",
     "sinon": "15.0.1",
-    "typescript": "4.9.5"
+    "typescript": "5.0.2"
   },
   "dependencies": {
     "ts-node": "10.9.1",
     "yargs": "17.6.2"
   },
   "peerDependencies": {
-    "typescript": "^4.0.0"
+    "typescript": "^4.0.0 || ^5.0.0"
   }
 }
