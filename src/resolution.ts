@@ -36,7 +36,7 @@ export async function walkPath (path: string, predicate: (fileName: string) => b
     try {
       // If item can be successfully read as a directory, we add its files to the top-of-stack.
       const dirFileNames = await readDirectory(item)
-      stack.unshift(...dirFileNames.map((fileName) => join(item, fileName)))
+      stack.unshift(...dirFileNames.filter((fileName) => fileName !== 'node_modules').map((fileName) => join(item, fileName)))
     } catch (err: unknown) {
       if (isNodeError(err) && err.code === 'ENOTDIR') {
         // item seems to refer to a file instead of a directory.
