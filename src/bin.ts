@@ -3,7 +3,7 @@
 import { main } from './index.js'
 import yargs from 'yargs'
 
-const parsedArgs = yargs(process.argv.slice(2)).command('* <paths...>', 'Run tests', (yargs) => {
+await yargs(process.argv.slice(2)).command('* <paths...>', 'Run tests', (yargs) => {
   return yargs.options({
     'test-name-pattern': {
       type: 'string',
@@ -49,6 +49,6 @@ const parsedArgs = yargs(process.argv.slice(2)).command('* <paths...>', 'Run tes
     demandOption: true,
     description: 'Paths to test files'
   })
-}).parseSync()
-
-await main(parsedArgs.paths, parsedArgs)
+}, async (parsedArgs) => {
+  await main(parsedArgs.paths, parsedArgs)
+}).parse()
