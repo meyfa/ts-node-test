@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.4.1](https://github.com/meyfa/ts-node-test/compare/v0.4.0...v0.4.1) (2023-03-19)
+
+
+### Bug Fixes
+
+* Don't recurse into node_modules unless explicitly requested ([#54](https://github.com/meyfa/ts-node-test/issues/54)) ([c51fe5f](https://github.com/meyfa/ts-node-test/commit/c51fe5faac21cc0ad55f2467d55fdef3cbe41f7f))
+* Update 'yargs' and provide command handler ([#51](https://github.com/meyfa/ts-node-test/issues/51)) ([ceced17](https://github.com/meyfa/ts-node-test/commit/ceced17d9bec8bb1c9e7afe2ad3a7fc7dca88a1a))
+
 ## [0.4.0](https://github.com/meyfa/ts-node-test/compare/v0.3.0...v0.4.0) (2023-03-17)
 
 
