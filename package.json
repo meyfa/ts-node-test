@@ -43,14 +43,14 @@
     "@meyfa/eslint-config": "3.0.0",
     "@types/node": "18.15.3",
     "@types/sinon": "10.0.13",
-    "@types/yargs": "17.0.17",
+    "@types/yargs": "17.0.22",
     "eslint": "8.35.0",
     "sinon": "15.0.1",
     "typescript": "5.0.2"
   },
   "dependencies": {
     "ts-node": "10.9.1",
-    "yargs": "17.6.2"
+    "yargs": "17.7.1"
   },
   "peerDependencies": {
     "typescript": "^4.0.0 || ^5.0.0"
