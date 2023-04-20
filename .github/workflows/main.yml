@@ -27,7 +27,7 @@ jobs:
           - windows-latest
         node-version:
           - 18
-          - 19
+          - 20
     name: test (${{ matrix.os }}) - Node.js ${{ matrix.node-version }}
     runs-on: ${{ matrix.os }}
     steps:
