@@ -42,7 +42,7 @@
   "devDependencies": {
     "@meyfa/eslint-config": "3.0.0",
     "@types/node": "18.16.18",
-    "@types/sinon": "10.0.13",
+    "@types/sinon": "10.0.15",
     "@types/yargs": "17.0.22",
     "eslint": "8.43.0",
     "sinon": "15.0.3",
