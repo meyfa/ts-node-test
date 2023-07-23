@@ -1,6 +1,6 @@
 {
   "name": "ts-node-test",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "Use the Node.js test runner, but with TypeScript via ts-node",
   "type": "module",
   "files": [
