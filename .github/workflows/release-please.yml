@@ -8,21 +8,29 @@ name: release-please
 jobs:
   release-please:
     runs-on: ubuntu-latest
+    outputs:
+      release_created: ${{ steps.release.outputs.release_created }}
     steps:
       - uses: google-github-actions/release-please-action@v3
         id: release
         with:
           release-type: node
+          bump-minor-pre-major: true
+
+  npm-publish:
+    needs: release-please
+    if: ${{ needs.release-please.outputs.release_created }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
       - uses: actions/checkout@v3
-        if: ${{ steps.release.outputs.release_created }}
       - uses: actions/setup-node@v3
         with:
           node-version: 18
           registry-url: 'https://registry.npmjs.org'
-        if: ${{ steps.release.outputs.release_created }}
       - run: npm ci
-        if: ${{ steps.release.outputs.release_created }}
-      - run: npm publish
+      - run: npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-        if: ${{ steps.release.outputs.release_created }}
