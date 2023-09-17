@@ -1,6 +1,6 @@
-import { spawn } from 'child_process'
-import { createRequire } from 'module'
-import { pathToFileURL } from 'url'
+import { spawn } from 'node:child_process'
+import { createRequire } from 'node:module'
+import { pathToFileURL } from 'node:url'
 import { resolveTestPaths } from './resolution.js'
 
 const DEFAULT_TEST_EXTENSIONS = ['.js', '.mjs', '.cjs', '.ts', '.mts', '.cts']
