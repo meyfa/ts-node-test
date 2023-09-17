@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.4.3](https://github.com/meyfa/ts-node-test/compare/v0.4.2...v0.4.3) (2023-09-17)
+
+
+### Bug Fixes
+
+* Simplify TEST_EXTENSIONS null/undefined check ([#84](https://github.com/meyfa/ts-node-test/issues/84)) ([aa92fcb](https://github.com/meyfa/ts-node-test/commit/aa92fcb5f13ff3000fc2c53f4c2371defa1d9613))
+* Use 'node:' protocol in imports ([#86](https://github.com/meyfa/ts-node-test/issues/86)) ([850eb7b](https://github.com/meyfa/ts-node-test/commit/850eb7b61c8d3f2b4b8fc74efb6253b7f5b76395))
+
 ## [0.4.2](https://github.com/meyfa/ts-node-test/compare/v0.4.1...v0.4.2) (2023-07-23)
 
 
