@@ -6,7 +6,7 @@ import { resolveTestPaths } from './resolution.js'
 const DEFAULT_TEST_EXTENSIONS = ['.js', '.mjs', '.cjs', '.ts', '.mts', '.cts']
 
 export function getTestExtensions (): string[] {
-  if (typeof process.env.TEST_EXTENSIONS !== 'undefined' && process.env.TEST_EXTENSIONS !== null) {
+  if (process.env.TEST_EXTENSIONS != null) {
     return process.env.TEST_EXTENSIONS.split(',').map(e => e.trim())
   }
   return DEFAULT_TEST_EXTENSIONS
