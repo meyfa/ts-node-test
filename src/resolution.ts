@@ -1,6 +1,6 @@
-import { join } from 'path'
-import { readdir } from 'fs/promises'
-import { PathLike } from 'fs'
+import { join } from 'node:path'
+import { readdir } from 'node:fs/promises'
+import { PathLike } from 'node:fs'
 
 /**
  * Resolve a given set of (user-provided) input paths to explicit file names.
