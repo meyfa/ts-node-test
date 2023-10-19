@@ -28,6 +28,7 @@ jobs:
         node-version:
           - 18
           - 20
+          - 21
     name: test (${{ matrix.os }}) - Node.js ${{ matrix.node-version }}
     runs-on: ${{ matrix.os }}
     steps:
