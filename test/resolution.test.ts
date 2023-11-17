@@ -6,8 +6,8 @@ import * as resolution from '../src/resolution.js'
 
 const ENOTDIR = (): Error => Object.assign(new Error(), { code: 'ENOTDIR' })
 
-describe('resolution', () => {
-  it('walks directories', async () => {
+void describe('resolution', () => {
+  void it('walks directories', async () => {
     const predicate = sinon.stub()
     predicate.withArgs(path.join('some-project', 'file.ts')).returns(true)
     predicate.withArgs(path.join('some-project', 'subdir1', 'subfile.ts')).returns(true)
@@ -29,7 +29,7 @@ describe('resolution', () => {
     assert.strictEqual(predicate.withArgs(path.join('some-project', 'subdir1', 'subfile.ts')).callCount, 1)
   })
 
-  it('resolves test paths', async () => {
+  void it('resolves test paths', async () => {
     const files = ['a.ts', 'a.test.ts', 'b.ts', 'b.test.ts']
     const extensions = ['.test.ts']
 
@@ -44,7 +44,7 @@ describe('resolution', () => {
     assert.deepStrictEqual(results.sort(), expectedResults.sort())
   })
 
-  it('does not descend into node_modules unless explicitly provided', async () => {
+  void it('does not descend into node_modules unless explicitly provided', async () => {
     const predicate = sinon.stub()
     predicate.withArgs(path.join('foo', 'node_modules', 'file1.ts')).returns(true)
     predicate.withArgs(path.join('foo', 'bar', 'file2.ts')).returns(true)
