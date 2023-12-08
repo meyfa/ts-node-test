@@ -49,7 +49,7 @@
     "typescript": "5.2.2"
   },
   "dependencies": {
-    "ts-node": "10.9.1",
+    "ts-node": "10.9.2",
     "yargs": "17.7.2"
   },
   "peerDependencies": {
