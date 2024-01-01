@@ -43,7 +43,7 @@
     "@meyfa/eslint-config": "5.0.0",
     "@types/node": "20.9.1",
     "@types/sinon": "17.0.0",
-    "@types/yargs": "17.0.28",
+    "@types/yargs": "17.0.32",
     "eslint": "8.56.0",
     "sinon": "17.0.1",
     "typescript": "5.2.2"
