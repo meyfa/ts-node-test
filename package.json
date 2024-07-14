@@ -46,7 +46,7 @@
     "@types/yargs": "17.0.32",
     "eslint": "8.57.0",
     "sinon": "18.0.0",
-    "typescript": "5.5.2"
+    "typescript": "5.5.3"
   },
   "dependencies": {
     "ts-node": "10.9.2",
