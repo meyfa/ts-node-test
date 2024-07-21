@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.4](https://github.com/meyfa/ts-node-test/compare/v0.4.3...v0.4.4) (2024-07-14)
+
+
+### Bug Fixes
+
+* **deps:** update dependency ts-node to v10.9.2 ([#104](https://github.com/meyfa/ts-node-test/issues/104)) ([72efc3a](https://github.com/meyfa/ts-node-test/commit/72efc3a39930a4eefa7eb039489f3d5f83f702e6))
+
 ## [0.4.3](https://github.com/meyfa/ts-node-test/compare/v0.4.2...v0.4.3) (2023-09-17)
 
 
