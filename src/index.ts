@@ -55,7 +55,7 @@ function spawnChild (loader: string, resolvedTestPaths: string[], options: Optio
     child.removeAllListeners()
     process.off('SIGINT', sendSignalToChild)
     process.off('SIGTERM', sendSignalToChild)
-    process.exitCode = code === null ? 1 : code
+    process.exitCode = code ?? 1
   })
   process.on('SIGINT', sendSignalToChild)
   process.on('SIGTERM', sendSignalToChild)
