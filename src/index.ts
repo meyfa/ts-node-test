@@ -7,7 +7,7 @@ const DEFAULT_TEST_EXTENSIONS = ['.js', '.mjs', '.cjs', '.ts', '.mts', '.cts']
 
 export function getTestExtensions (): string[] {
   if (process.env.TEST_EXTENSIONS != null) {
-    return process.env.TEST_EXTENSIONS.split(',').map(e => e.trim())
+    return process.env.TEST_EXTENSIONS.split(',').map((e) => e.trim())
   }
   return DEFAULT_TEST_EXTENSIONS
 }

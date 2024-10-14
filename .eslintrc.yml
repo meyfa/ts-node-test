@@ -1,3 +1,0 @@
-extends: '@meyfa/eslint-config'
-parserOptions:
-  project: './tsconfig.lint.json'
