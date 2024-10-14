@@ -13,8 +13,8 @@
   },
   "scripts": {
     "build": "node -e \"fs.rmSync('./dist',{force:true,recursive:true})\" && tsc",
-    "lint": "tsc --noEmit -p tsconfig.lint.json && eslint --ignore-path .gitignore .",
-    "lint-fix": "tsc --noEmit -p tsconfig.lint.json && eslint --fix --ignore-path .gitignore .",
+    "lint": "tsc --noEmit -p tsconfig.lint.json && eslint .",
+    "lint-fix": "tsc --noEmit -p tsconfig.lint.json && eslint --fix .",
     "test": "npm run build && node dist/bin.js test/",
     "prepack": "npm run build"
   },
@@ -40,13 +40,13 @@
   },
   "homepage": "https://github.com/meyfa/ts-node-test#readme",
   "devDependencies": {
-    "@meyfa/eslint-config": "7.0.0",
-    "@types/node": "20.16.10",
+    "@meyfa/eslint-config": "8.0.0",
+    "@types/node": "20.16.11",
     "@types/sinon": "17.0.3",
-    "@types/yargs": "17.0.32",
-    "eslint": "8.57.1",
+    "@types/yargs": "17.0.33",
+    "eslint": "9.12.0",
     "sinon": "19.0.2",
-    "typescript": "5.6.2"
+    "typescript": "5.6.3"
   },
   "dependencies": {
     "ts-node": "10.9.2",
