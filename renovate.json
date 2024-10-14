@@ -8,6 +8,12 @@
     {
       "matchDepTypes": ["devDependencies"],
       "extends": ["schedule:weekly"]
+    },
+    {
+      "matchDepTypes": ["devDependencies"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "dev dependencies (non-major)",
+      "groupSlug": "dev-dependencies-non-major"
     }
   ]
 }
