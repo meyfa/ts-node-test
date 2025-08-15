@@ -45,7 +45,7 @@
     "@types/sinon": "17.0.4",
     "@types/yargs": "17.0.33",
     "eslint": "9.33.0",
-    "sinon": "20.0.0",
+    "sinon": "21.0.0",
     "typescript": "5.9.2"
   },
   "dependencies": {
