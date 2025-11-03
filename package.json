@@ -43,10 +43,10 @@
     "@meyfa/eslint-config": "8.0.1",
     "@types/node": "24.10.0",
     "@types/sinon": "17.0.4",
-    "@types/yargs": "17.0.33",
-    "eslint": "9.33.0",
+    "@types/yargs": "17.0.34",
+    "eslint": "9.39.1",
     "sinon": "21.0.0",
-    "typescript": "5.9.2"
+    "typescript": "5.9.3"
   },
   "dependencies": {
     "ts-node": "10.9.2",
