@@ -40,7 +40,7 @@
   },
   "homepage": "https://github.com/meyfa/ts-node-test#readme",
   "devDependencies": {
-    "@meyfa/eslint-config": "8.0.1",
+    "@meyfa/eslint-config": "9.0.0",
     "@types/node": "24.10.0",
     "@types/sinon": "17.0.4",
     "@types/yargs": "17.0.34",
