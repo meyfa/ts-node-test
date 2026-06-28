@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.5](https://github.com/meyfa/ts-node-test/compare/v0.4.4...v0.4.5) (2026-06-28)
+
+
+### Bug Fixes
+
+* **deps:** update dependency yargs to v17.7.3 ([#172](https://github.com/meyfa/ts-node-test/issues/172)) ([48499a3](https://github.com/meyfa/ts-node-test/commit/48499a3fa25ff081743e994b9f395d129dff27b5))
+
 ## [0.4.4](https://github.com/meyfa/ts-node-test/compare/v0.4.3...v0.4.4) (2024-07-14)
 
 
