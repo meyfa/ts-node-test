@@ -2,16 +2,32 @@ name: Publish
 
 on:
   push:
-    tags:
-      - 'v*.*.*'
-
-permissions:
-  id-token: write
-  contents: read
+    branches:
+      - main
 
 jobs:
-  npm-publish:
+  release-please:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+    outputs:
+      release_created: ${{ steps.release.outputs.release_created }}
+    steps:
+      - uses: googleapis/release-please-action@v5
+        id: release
+        with:
+          release-type: node
+          bump-minor-pre-major: true
+
+  npm-publish:
+    needs: release-please
+    if: ${{ needs['release-please'].outputs.release_created }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
