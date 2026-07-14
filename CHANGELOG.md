@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.6](https://github.com/meyfa/ts-node-test/compare/v0.4.5...v0.4.6) (2026-07-14)
+
+
+### Miscellaneous Chores
+
+* Integrate trusted publishing workflow ([#179](https://github.com/meyfa/ts-node-test/issues/179)) ([4ac6102](https://github.com/meyfa/ts-node-test/commit/4ac6102f17b9a7f08dde8477399dcaaa2f6d9468))
+
 ## [0.4.5](https://github.com/meyfa/ts-node-test/compare/v0.4.4...v0.4.5) (2026-07-14)
 
 
